@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eeeee8">
+  <title>FarDrop · 临时文件分享</title>
+  <link rel="stylesheet" href="/about/fardrop/style.css">
+  <script defer src="/about/fardrop/app.js"></script>
+</head>
+<body>
+  <header class="top shell">
+    <a class="brand" href="/about/fardrop/" aria-label="FarDrop 首页"><span class="mark" aria-hidden="true">↗</span> FarDrop</a>
+    <a class="back" href="/about">← 返回博客</a>
+  </header>
+
+  <main class="shell">
+    <div class="intro">
+      <h1>临时文件分享<span>.</span></h1>
+      <p>上传最多 5 GiB 的文件，生成有有效期的下载链接。</p>
+    </div>
+
+    <section class="panel login" id="login">
+      <h2>上传者登录</h2>
+      <form id="login-form">
+        <label for="token">管理令牌</label>
+        <div class="field-line">
+          <input id="token" type="password" required autocomplete="off" spellcheck="false" placeholder="输入 FarDrop 管理令牌">
+          <button type="submit" class="primary">进入<span aria-hidden="true"> →</span></button>
+        </div>
+      </form>
+      <p class="message" id="login-message" role="status"></p>
+      <p class="hint">接收者打开分享链接即可下载。</p>
+    </section>
+
+    <div id="dashboard" hidden>
+      <div class="toolbar"><button type="button" class="plain" id="logout">退出管理</button></div>
+      <section class="panel">
+        <h2>上传文件</h2>
+        <label class="drop" for="file" id="drop">
+          <span class="drop-icon" aria-hidden="true">↑</span>
+          <strong id="file-name">点击选择或拖入文件</strong>
+          <span class="hint">中断后重新选择同一文件，即可续传。</span>
+        </label>
+        <input type="file" id="file" aria-label="选择上传文件">
+        <p class="hint">新文件上传完成 7 天后自动删除，相关分享链接随文件到期。</p>
+        <div id="progress-area" hidden>
+          <progress id="progress" value="0" max="100" aria-label="上传进度"></progress>
+          <p class="message" id="upload-message" role="status"></p>
+        </div>
+        <button type="button" id="pause" class="secondary" hidden>暂停上传</button>
+      </section>
+
+      <section class="panel">
+        <h2>已上传文件</h2>
+        <div id="files"></div>
+        <p class="message" id="files-message" role="status"></p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

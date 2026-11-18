@@ -1,0 +1,10 @@
+{
+  "id": "web-fardrop",
+  "name": "FarDrop · 临时文件分享",
+  "year": 2026,
+  "tagline": "上传最多 5 GiB 的文件，给接收者发一个有有效期的下载链接。",
+  "image": "/about/fardrop/cover.png",
+  "demo": "/about/fardrop/",
+  "tags": ["大文件", "限时分享", "断点续传"],
+  "content": "FarDrop 用于分享临时大文件。上传者使用管理令牌登录，上传文件后可以设置链接有效期，也可以提前撤销链接。\n\n接收者打开有效链接即可下载。上传和下载均支持断点续传，完整文件保存在自建服务器上。"
+}

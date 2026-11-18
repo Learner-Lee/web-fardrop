@@ -1,0 +1,22 @@
+[Unit]
+Description=FarDrop origin storage
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=web-fardrop
+Group=web-fardrop
+EnvironmentFile=/etc/web-fardrop/origin.env
+ExecStart=/storage/Project/web-fardrop/fardrop origin
+Restart=always
+RestartSec=5s
+UMask=0077
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/storage/Project/web-fardrop/data
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,22 @@
+[Unit]
+Description=FarDrop blog edge
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+EnvironmentFile=/etc/web-fardrop/edge.env
+Environment=GOMEMLIMIT=640MiB
+MemoryHigh=720M
+MemoryMax=850M
+ExecStart=/storage/blog/web-fardrop/fardrop edge
+Restart=always
+RestartSec=5s
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
